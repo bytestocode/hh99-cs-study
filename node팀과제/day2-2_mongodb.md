@@ -4,30 +4,18 @@
 > 데이터 타입, 필수 여부 구분
 ```javascript
 const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
-const postsSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  author: {
-    type: String,
-    required: true,
-  },
-  contents: {
-    type: String,
-    required: true,
-  },
-  date: {
-    type: Date,
-    required: true,
-  },
-  comments: {
-    type: Array,
-  },
+const postsSchema = new Schema({
+  title: { type: String, required: true },
+  author: { type: String, required: true },
+  contents: { type: String, required: true },
+  date: { type: Date, required: true, default: Date.now },
+  // comments: { type: Array },
+  comments: [{ type: String }],
 });
 
-module.exports = mongoose.model("Posts", postsSchema);
+module.exports = model("Posts", postsSchema);
 ```
 
 ### 게시글 목록 조회 API
