@@ -6,14 +6,30 @@
 ### IIFE (즉시실행함수)
 #### 익명함수 (한번만 사용하기 때문에 기명으로 할 필요가 없음)
 ```javascript
+// 일반적인 함수 정의
+function sum() {
+  const a = 3;
+  const b = 5;
+  return a * b;
+};
+
+// 즉시실행함수 1
 (function () {
-  let a = 3;
-  let b = 5;
+  const a = 3;
+  const b = 5;
   return a * b;
 }());
+
+// 즉시실행함수 2
+(function () {
+  const a = 3;
+  const b = 5;
+  return a * b;
+})();
 ```
-#### 전역 변수의 사용을 제한하는데 사용할 수 있음   
-> 즉시실행함수로 감싼 코드의 모든 변수는 즉시실행함수의 지역변수가 됨
+#### 변수의 범위를 한정하는데 사용할 수 있음   
+> 즉시실행함수의 모든 변수는 즉시실행함수의 지역변수가 됨   
+> 클로저를 발생시킬 수 있음
 ```javascript
 (function () {
   let foo = 10;
@@ -32,7 +48,9 @@ const express = require('express');
 ```javascript
 require('/경로/파일명')
 // 1. 위와 같이 경로/파일명으로 찾음
+require('/경로')
 // 2. 경로만 표기하면 해당 경로에서 index.js 파일을 찾음
+require('라이브러리')
 // 3. '/'가 없는 경우는 node_modules에서 찾음
 ```
 #### 기능
