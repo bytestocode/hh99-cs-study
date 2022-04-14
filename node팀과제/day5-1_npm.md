@@ -78,13 +78,17 @@ logFromSome();  // ok
 ```
 #### require 작동 해부
 ```javascript
-(function (exports, require, module, __filename, __dirname) {
-  const log = function () {
-    console.log("ok");
-  };
-  module.exports = log
-} (module.exports, require, module, filename, dirname));
-return module.exports;
+function require(/* ... */) {
+  const module = {exports: {}};
+  ((module, exports) => {
+    const log = function () {
+      console.log("ok");
+    };
+    exports = log;
+    module.exports = log;
+  }(module, module.exports));
+  return module.exports;
+}
 ```
 
 ### import
