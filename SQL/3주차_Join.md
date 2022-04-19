@@ -8,8 +8,8 @@
 > inner join point_users p
 > on u.user_id = p.user_id;
 ```
-<img src="../img/cs_study/innerjoin.png" alt="" width="500px"/>
-<img src="../img/cs_study/leftjoin.png" alt="" width="500px"/>
+<img src="../img/cs_study/innerjoin.png" alt=""/>
+<img src="../img/cs_study/leftjoin.png" alt=""/>
 
 > from → join → select
 
@@ -20,7 +20,7 @@
 > on p.user_id = u.user_id
 > order by p.point desc;
 ```
-<img src="../img/cs_study/desc.png" alt="" width="500px"/>
+<img src="../img/cs_study/desc.png" alt=""/>
 
 ```sql
 > select u.name, count(u.name) as count_name from orders o
@@ -31,7 +31,7 @@
 ```
 > from → join → where → group by → select
 
-<img src="../img/cs_study/groupby.png" alt="" width="500px"/>
+<img src="../img/cs_study/groupby.png" alt=""/>
 
 ```sql
 > select c1.title, c2.week, count(*) as cnt from courses c1
@@ -41,7 +41,7 @@
 > group by c1.title, c2.week
 > order by c1.title, c2.week
 ```
-<img src="../img/cs_study/groupby2.png" alt="" width="500px"/>
+<img src="../img/cs_study/groupby2.png" alt=""/>
 
 ### UNION
 ```sql
@@ -64,7 +64,7 @@ union all
 )
 ```
 
-<img src="../img/cs_study/union.png" alt="" width="500px"/>
+<img src="../img/cs_study/union.png" alt="""/>
 
 
 ### 숙제
@@ -77,4 +77,4 @@ union all
 > order by e.user_id  desc
 ```
 
-<img src="../img/cs_study/final.png" alt="" width="500px"/>
+<img src="../img/cs_study/final.png" alt=""/>
