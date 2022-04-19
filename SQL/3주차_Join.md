@@ -41,7 +41,7 @@
 > group by c1.title, c2.week
 > order by c1.title, c2.week
 ```
-<img src="../img/cs_study/groupby2.png" alt=""/>
+<img src="../img/cs_study/final.png" alt=""/>
 
 ### UNION
 ```sql
@@ -64,7 +64,7 @@ union all
 )
 ```
 
-<img src="../img/cs_study/union.png" alt="""/>
+<img src="../img/cs_study/union.png" alt=""/>
 
 
 ### 숙제
@@ -76,5 +76,4 @@ union all
 > group by e.enrolled_id, e.user_id
 > order by e.user_id  desc
 ```
-
-<img src="../img/cs_study/final.png" alt=""/>
+<img src="../img/cs_study/groupby2.png" alt=""/>
