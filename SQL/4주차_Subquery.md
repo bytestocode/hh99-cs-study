@@ -28,7 +28,7 @@ from checkins c;
 2. <select> checkin_id, user_id, likes, avg_like_user(서브쿼리)
 
 3. <sub-from> checkins 테이블에서
-4. <sub-where> user_id가 user_id와 같다면??
+4. <sub-where> user_id가 user_id와 같다면 (좋아요수 평균을 가진 user_id와 출력될 테이블의 user_id)
 5. <sub-select> 좋아요수 평균을 조회
 ```
 #### from 관련
@@ -48,7 +48,7 @@ inner join (
 6. <select> user_id, 서브쿼리의 avg_like, point 조회
 ```
 
-#### with 절 ??
+#### with 절
 ```sql
 with table1 as (
 	select course_id, count(distinct(user_id)) as cnt_checkins from checkins
@@ -57,13 +57,22 @@ with table1 as (
 	select course_id, count(*) as cnt_total from orders
 	group by course_id
 )
-
 select c.title,
        a.cnt_checkins,
        b.cnt_total,
        (a.cnt_checkins/b.cnt_total) as ratio
-from table1 a inner join table2 b on a.course_id = b.course_id
+from table1 a 
+inner join table2 b on a.course_id = b.course_id
 inner join courses c on a.course_id = c.course_id
+
+서브쿼리를 with절로 치환
+1. <sub-with> table1을 설정
+2. <sub-with> table2를 설정
+
+3. <from> table1에서
+4. <inner join> course_id를 기준으로 a에다 b를 갖다 붙임
+5. <inner join> course_id를 기준으로 a에다 c를 갖다 붙임
+6. <select> courses의 title, table1의 cnt_checkins, table2의 cnt_total, ratio 조회
 ```
 
 #### string 관련
